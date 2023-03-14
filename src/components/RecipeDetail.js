@@ -31,22 +31,22 @@ export default function RecipeDetail() {
                         <table className="table table-borderless my-3">
                             <tbody>
                                 <tr>
-                                    <td><i class="bi bi-pie-chart-fill"></i></td>
+                                    <td><i className="bi bi-pie-chart-fill"></i></td>
                                     <td className="h6"><b>Serves</b></td>
                                     <td> {recipe.servings} </td>
                                 </tr>
                                 <tr>
-                                    <td><i class="bi bi-clock"></i></td>
+                                    <td><i className="bi bi-clock"></i></td>
                                     <td className="h6 text-left"><b>Time (min)</b></td>
                                     <td> {recipe.readyInMinutes} </td>
                                 </tr>
                                 <tr>
-                                    <td><i class="bi bi-heart-fill"></i></td>
+                                    <td><i className="bi bi-heart-fill"></i></td>
                                     <td className="h6"><b>Health Score</b></td>
                                     <td> {recipe.healthScore} </td>
                                 </tr>
                                 <tr>
-                                    <td><i class="bi bi-hand-thumbs-up-fill"></i></td>
+                                    <td><i className="bi bi-hand-thumbs-up-fill"></i></td>
                                     <td className="h6"><b>Likes</b></td>
                                     <td> {recipe.aggregateLikes} </td>
                                 </tr>
@@ -54,7 +54,7 @@ export default function RecipeDetail() {
                         </table>
                         {healthData.map(attribute => {
                             return recipe[attribute] && (
-                                <div className="btn mt-3 mb-1 mx-2 btn-outline-secondary"> {lodash.startCase(attribute)} </div>
+                                <div key={attribute} className="btn mt-3 mb-1 mx-2 btn-outline-secondary"> {lodash.startCase(attribute)} </div>
                             )
                         })}
                     </div>
