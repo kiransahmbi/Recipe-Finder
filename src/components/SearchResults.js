@@ -1,12 +1,13 @@
 import React from "react";
 import axios from 'axios';
 import {useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { cuisineList } from './cuisines'
 import Pagination from './Pagination';
 
 export default function SearchResults() {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const [searchInput, setSearchInput] = useState(state.searchInput);
   const [recipeList, setRecipeList] = useState();
   const [recipeNumber, setRecipeNumber] = useState(0);
@@ -50,6 +51,11 @@ export default function SearchResults() {
     setCurrentPage(1);
   }
 
+  // Navigate to Details Page
+  function NavigateDetails(id) {
+    navigate(`/recipe-details/${id}`);
+  }
+
   return (
     <div>
         {recipeList && (
@@ -76,7 +82,7 @@ export default function SearchResults() {
                     {recipeList.results.slice(indexOfFirstRecipe, indexOfLastRecipe).map(function(recipe) {
                         return (
                             <div key={recipe.id} className="col-lg-4 col-sm-12 my-2">
-                                <a href={`/recipe-details/${recipe.id}`} className="link">
+                                <a onClick={() => NavigateDetails(recipe.id)} className="link">
                                 <div className="card h-100" key={recipe._id}>
                                     <img className="card-img-top w-100" src={recipe.image} alt={recipe.title} />
                                     <div className="card-body">

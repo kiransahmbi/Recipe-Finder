@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 // Partials
 import Header from "./components/partial/Header";
@@ -13,7 +13,7 @@ import RecipeDetail from "./components/RecipeDetail";
 export default class ReactRouter extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,7 +32,7 @@ export default class ReactRouter extends React.Component {
           
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
